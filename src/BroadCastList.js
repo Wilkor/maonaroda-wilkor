@@ -1,7 +1,7 @@
-import React, { Component,useState,useEffect } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from 'react';
+//import {  } from 'react-dom';
 import api from './services-api';
-import List from './StatusList'
+//import List from './StatusList'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
@@ -18,7 +18,7 @@ constructor(props){
     keyDestino:null,
     statusWhatsApp:[]
   }
-  
+
 }
 
 
@@ -37,8 +37,7 @@ guid() {
  handleGetMessageLog = async (event)=>{
   event.preventDefault();
    document.getElementById("modal").click();
-  
-try {
+
 
      const response =  await api.post('/commands', {
           id:this.guid(),
@@ -47,28 +46,18 @@ try {
           },
          {
             headers: {'Content-Type': 'application/json'}}
-             
+
         );
 
       const { data } = response
       let resultItems = data.resource.items;
 
-
- 
-
-
-    } catch (err) {
-      
-     return  err.data.error 
-    }
-
-
     var result = {
          "resource":resultItems.filter((props)=>{ return props["pp"]})
                     .map((e)=>{ return {"id":e.id, "data": e.metadata["#scheduler.when"].split(" ")[0]}})
-                    .filter((e)=>{ return e.data == "11/05/2019"})
+                    .filter((e)=>{ return e.data === "11/05/2019"})
                 }
-    
+
      this.handleGetStatusWhatsApp(result);
 
 }
@@ -89,12 +78,12 @@ handleGetStatusWhatsApp = async (result1) =>{
                 );
               const { data } = response
                let t  = data.resource.items.map((e)=>{return {"evento":e.event,"phone":e.from.split("-")[3]}})
-             
+
                 resultArrayWhitStatusAndPhon.push(t);
 
-            
+
  }
- 
+
 this.setState({statusWhatsApp:resultArrayWhitStatusAndPhon})
 document.getElementById("modal").click()
 
@@ -114,33 +103,39 @@ document.getElementById("modal").click()
               <h4 className="border-bottom border-gray pb-2 mb-0">BroadCast</h4>
               <br/>
               <div className="container-button">
-               <button className="btn btn-primary btn" onClick={(event) => this.handleGetMessageLog(event)}>Verificar Status</button> 
-          
+               <button className="btn btn-primary btn" onClick={(event) => this.handleGetMessageLog(event)}>Verificar Status</button>
+
               </div>
               <br/>
                  <table class="table table-hover table-dark">
             <thead>
               <tr>
-                
+
                 <th scope="col">Telefone</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
 
-            
-            {this.state.statusWhatsApp.map((elemento)=>{
 
-              return <List ideia={elemento[0]}></List>
-            
+            {this.state.statusWhatsApp.map((elemento)=>{
+                console.log(elemento)
+              return (
+                  <tr>
+
+                    <td>{elemento[0].phone}</td>
+                    <td>{elemento[0].evento}</td>
+
+                    </tr>
+                   )
             })}
 
             </tbody>
             </table>
             </div>
 
-           
-            
+
+
            <button  type="hidden" id="modal" className="btn btn-primary" data-toggle="modal" data-backdrop="static"  data-target="#exampleModalCenter">
 
             </button>
@@ -148,22 +143,22 @@ document.getElementById("modal").click()
           <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
-              
+
                 <div className="modal-body">
-              
+
 
             <div className="my-3 p-3 bg-white">
-            
+
               <div className="media text-muted pt-3">
                 <p className="media-body pb-3 mb-0 lh-125 border-gray">
                 </p>
               </div>
               <div className="text-center">
-                <img src="https://raw.githubusercontent.com/Wilkor/Chat-bot-test/master/InternetSlowdown_Day.gif" className="img-fluid" alt="Responsive image" width="50%" height="50%"/>
+                <img src="https://raw.githubusercontent.com/Wilkor/Chat-bot-test/master/InternetSlowdown_Day.gif" alt="" className="img-fluid" width="50%" />
               </div>
               <br/>
               <main role="main" className="inner cover">
-                
+
               </main>
 
               <br/>
@@ -172,14 +167,14 @@ document.getElementById("modal").click()
 
 
                 </div>
-              
+
               </div>
             </div>
           </div>
 
 
         </main>
- 
+
           </>
     );
   }

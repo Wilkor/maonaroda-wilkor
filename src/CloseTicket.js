@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import ReactFileReader from 'react-file-reader';
+//import { render } from 'react-dom';
+//import Hello from './Hello';
+//import ReactFileReader from 'react-file-reader';
 import getTickets from './getTickets'
 import CloseTickets from './closeTickets'
 
@@ -20,7 +20,7 @@ class Home extends Component {
   }
 
 
-  
+
  handleGetTickets() {
   let result  =  getTickets()
 
@@ -31,8 +31,8 @@ class Home extends Component {
 
      data.forEach(element =>{
 
-        CloseTickets(element.id)   
-          
+        CloseTickets(element.id)
+
      })
 
 
@@ -42,7 +42,7 @@ class Home extends Component {
    })
 
    document.getElementById("modal").click()
-   
+
 }
   render() {
     return (
@@ -54,11 +54,11 @@ class Home extends Component {
               <br/>
 
               <div class="container-button">
-               <button class="btn btn-primary btn" onClick={this.handleGetTickets}>Fechar Tickets</button> 
-          
+               <button class="btn btn-primary btn" onClick={this.handleGetTickets}>Fechar Tickets</button>
+
               </div>
 
-      
+
             </div>
 
 
@@ -69,22 +69,22 @@ class Home extends Component {
           <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
-              
+
                 <div className="modal-body">
-              
+
 
             <div className="my-3 p-3 bg-white">
-            
+
               <div className="media text-muted pt-3">
                 <p className="media-body pb-3 mb-0 lh-125 border-gray">
                 </p>
               </div>
               <div className="text-center">
-                <img src="https://raw.githubusercontent.com/Wilkor/Chat-bot-test/master/InternetSlowdown_Day.gif" className="img-fluid" alt="Responsive image" width="50%" height="50%"/>
+                <img src="https://raw.githubusercontent.com/Wilkor/Chat-bot-test/master/InternetSlowdown_Day.gif" alt="" className="img-fluid"  width="50%" height="50%"/>
               </div>
               <br/>
               <main role="main" className="inner cover">
-                
+
               </main>
 
               <br/>
@@ -93,13 +93,13 @@ class Home extends Component {
 
 
                 </div>
-              
+
               </div>
             </div>
           </div>
 
         </main>
- 
+
           </>
     );
   }

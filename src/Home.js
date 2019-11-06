@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
+//import { render } from 'react-dom';
+//import Hello from './Hello';
 import ReactFileReader from 'react-file-reader';
 import InsertsResources from './setResources';
 import deleteResources from './deleteResources';
@@ -23,7 +23,7 @@ class Home extends Component {
   }
 
 
-  
+
  handleGetResources() {
   let result  =  getResources()
 
@@ -33,20 +33,20 @@ class Home extends Component {
 
   let x =0
      data.forEach(element =>{
-              
+
         (function(index) {
 
-                  setTimeout(function() {  
+                  setTimeout(function() {
 
-                  deleteResources(element)  
+                  deleteResources(element)
 
 
                     }, x*200);
 
                   })(1);
               //console.log(element)
-              
-              x++;   
+
+              x++;
      })
 
          alert("Regras Deletadas")
@@ -55,7 +55,7 @@ class Home extends Component {
 
      console.log(error)
    })
-   
+
 }
 
 
@@ -65,24 +65,24 @@ class Home extends Component {
     var reader = new FileReader();
     reader.onload =  async function(e) {
 
-     
+
 
     var splitArray = reader.result.split("\n");
 
    console.log(splitArray);
-
+// eslint-disable-next-line
     var array = [];
 
 
 
 
-      
+
 
      for(let x = 0, ln = splitArray.length; x < ln; x++){
 
           (function(index) {
 
-          setTimeout(function() {  
+          setTimeout(function() {
 
             InsertsResources(splitArray[x].split(";")[0],splitArray[x].split(";")[1])
 
@@ -90,11 +90,11 @@ class Home extends Component {
             }, x*100);
 
           })(x);
-      
+
        // InsertsResources(splitArray[x].split(";")[0],splitArray[x].split(";")[1])
      }
 
-       
+
 
         alert("Recursos Cadastrados")
 
@@ -112,15 +112,15 @@ class Home extends Component {
               <h4 class="border-bottom border-gray pb-2 mb-0">Cadastro de Resources</h4>
               <br/>
 
-             
+
                <div class="container-button">
                           <button class="btn btn-primary btn" onClick={this.handleGetResources}>Deletar Resources</button>
  <ReactFileReader handleFiles={this.handleFiles}>
                             <button class="btn btn-primary btn" >Carregar Resources</button>
   </ReactFileReader>
                           </div>
-                      
-            
+
+
         </div>
         </main>
 

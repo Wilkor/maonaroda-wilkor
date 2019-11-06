@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React,{} from 'react';
 import { Link } from 'react-router-dom';
 
 const Menu = () =>{
@@ -8,7 +8,7 @@ const Menu = () =>{
    return (
 
       <nav className="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-      <Link className="navbar-brand" to="#"><img src="https://raw.githubusercontent.com/Wilkor/Chat-bot-test/master/14134081Untitled-3-512.png" width="50"></img></Link>
+      <Link className="navbar-brand" to="#"><img src="https://raw.githubusercontent.com/Wilkor/Chat-bot-test/master/14134081Untitled-3-512.png" alt="" width="50"/></Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -37,16 +37,16 @@ const Menu = () =>{
                <Link className="dropdown-item" to="/cadastro">Assistentes</Link>
                <Link className="dropdown-item" to="/contact">Contatos</Link>
               <div className="dropdown-divider"></div>
-              
+
             </div>
           </li>
-         
+
         </ul>
       </div>
     </nav>
-   
+
    )
- 
+
 }
 
 export default Menu;

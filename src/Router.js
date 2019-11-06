@@ -10,15 +10,15 @@ import Config from './Config';
 import Clone from './CloneBots';
 import BroadCast from './BroadCastList'
 
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const Routes = (props) => (
 
    <>
-  
+
   <BrowserRouter>
-    <Navbar />  
-     
+    <Navbar />
+
     <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/resources" component={Home} />
@@ -33,7 +33,7 @@ const Routes = (props) => (
 
   </BrowserRouter>
   </>
-   
+
 );
 
 export default Routes;

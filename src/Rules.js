@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
+//import { render } from 'react-dom';
+//import Hello from './Hello';
 import ReactFileReader from 'react-file-reader';
 import setRules from './setRules'
 import getRules from './getRules'
@@ -21,7 +21,7 @@ class Home extends Component {
   }
 
 
-  
+
  handleGetRules() {
   let result  =  getRules()
 
@@ -29,8 +29,8 @@ class Home extends Component {
 
      data.forEach(element =>{
 
-      deleteRules(element.id)   
-          
+      deleteRules(element.id)
+
      })
 
          alert("Regras Deletadas")
@@ -39,7 +39,7 @@ class Home extends Component {
 
      console.log(error)
    })
-   
+
 }
 
 
@@ -49,8 +49,8 @@ handleFiles = files => {
     reader.onload = function(e) {
 
     let splitArray = reader.result.split("\n");
-    let array = [];
-  
+    //let array = [];
+
 
      for(var i= 0 ;i < splitArray.length-1;i++){
         setRules(splitArray[i].split(";")[0].trim())
@@ -60,7 +60,7 @@ handleFiles = files => {
      }
 
      alert("Regras Cadastradas")
-   
+
     }
 
   reader.readAsText(files[0]);
@@ -77,31 +77,31 @@ handleFiles = files => {
               <ReactFileReader handleFiles={this.handleFiles}>
 
               <div class="container-button">
-               <button 
-                          class="btn btn-primary btn" 
-                          onClick={this.handleGetRules}>Deletar Regras</button> 
+               <button
+                          class="btn btn-primary btn"
+                          onClick={this.handleGetRules}>Deletar Regras</button>
                           <button class="btn btn-primary btn" >Carregar Regras</button>
 
 
                         </div>
                         </ReactFileReader>
 
-                       
-            
+
+
         </div>
         </main>
 
-      
 
-         
-                         
-                       
 
-                       
-            
-     
 
-                  
+
+
+
+
+
+
+
+
           </>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
+//import { render } from 'react-dom';
+//import Hello from './Hello';
 import ReactFileReader from 'react-file-reader';
 import InsertsResources from './setAssistente'
 
@@ -24,17 +24,17 @@ handleFiles = files => {
     reader.onload = function(e) {
 
     let splitArray = reader.result.split("\n");
-    let array = [];
-  
+    //let array = [];
+
 
      for(var i= 0 ;i < splitArray.length-1;i++){
       // InsertsResources(splitArray[i].split(";")[0],splitArray[i].split(";")[1])
        InsertsResources(splitArray[i].split(";")[0],splitArray[i].split(";")[1])
-  
+
      }
 
          alert("Assistente Cadastrado")
-   
+
     }
 
   reader.readAsText(files[0]);
@@ -52,7 +52,7 @@ handleFiles = files => {
                         </ReactFileReader>
         </div>
         </main>
-                  
+
           </>
     );
   }

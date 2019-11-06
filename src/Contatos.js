@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import ReactFileReader from 'react-file-reader';
+//import { render } from 'react-dom';
+//import Hello from './Hello';
+//import ReactFileReader from 'react-file-reader';
 import insertContact from './setContact'
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -20,24 +20,9 @@ class Home extends Component {
 
 
 handleFiles = files => {
-   // var reader = new FileReader();
-   // reader.onload = function(e) {
 
-   // let splitArray = reader.result.split("\n");
-    //let array = [];
-  
-
-   //  for(var i= 0 ;i < splitArray.length-1;i++){
-      // InsertsResources(splitArray[i].split(";")[0],splitArray[i].split(";")[1])
-       //InsertsResources(splitArray[i].split(";")[0],splitArray[i].split(";")[1])
      insertContact()
-    // }
 
-         //alert("Assistente Cadastrado")
-   
-    //}
-
-  //reader.readAsText(files[0]);
 }
   render() {
     return (
@@ -47,12 +32,12 @@ handleFiles = files => {
               <h4 class="border-bottom border-gray pb-2 mb-0">Cadastro de Contatos</h4>
               <br/>
 
-         
+
                           <button class="btn btn-primary btn"  onClick={this.handleFiles}  >Carregar Contatos</button>
-                     
+
         </div>
         </main>
-                  
+
           </>
     );
   }

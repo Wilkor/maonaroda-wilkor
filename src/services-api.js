@@ -6,16 +6,16 @@ const api = create({
 
 api.addAsyncRequestTransform(request => async () => {
 
- const token = null;
+ let  token = null;
 
   if(!!localStorage.getItem('@heavybots:token')){
 
-    const token = localStorage.getItem('@heavybots:token')
+     token = localStorage.getItem('@heavybots:token')
 
   if (token)
     request.headers['Authorization'] = token;
   }
-    
+
 });
 
 api.addResponseTransform(response => {

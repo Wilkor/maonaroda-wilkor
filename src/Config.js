@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import ReactFileReader from 'react-file-reader';
-import getTickets from './getTickets'
-import CloseTickets from './closeTickets'
+//import { render } from 'react-dom';
+//import Hello from './Hello';
+//import ReactFileReader from 'react-file-reader';
+//import getTickets from './getTickets'
+//import CloseTickets from './closeTickets'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
@@ -22,7 +22,7 @@ constructor(props){
 }
 
 
-  
+
 handleLocalStorage (event){
 
 event.preventDefault();
@@ -39,22 +39,22 @@ alert("Dados gravados com sucesso!")
           <div class="my-3 p-3 bg-white rounded shadow-sm">
               <h4 class="border-bottom border-gray pb-2 mb-0">Configuração</h4>
               <br/>
-                <div className="form-group text-grey">      
+                <div className="form-group text-grey">
                 <label for="exampleFormControlInput1">Key</label>
-                <input type="apikey" className="form-control" 
+                <input type="apikey" className="form-control"
                onChange = {(event) => this.setState({apikey:event.target.value})}
                  id="exampleFormControlInput1" />
           </div>
 
               <div class="container-button">
-               <button class="btn btn-primary btn" onClick={(event) => this.handleLocalStorage(event)}>Gravar</button> 
-          
+               <button class="btn btn-primary btn" onClick={(event) => this.handleLocalStorage(event)}>Gravar</button>
+
               </div>
 
-      
+
             </div>
         </main>
- 
+
           </>
     );
   }
