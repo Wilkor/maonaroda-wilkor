@@ -11,10 +11,6 @@ import './style.css';
 class Home extends Component {
 constructor(props){
 
-  
-  this.handleGetMessageLog = this.handleGetMessageLog.bind(this);
-  this.handleGetStatusWhatsApp = this.handleGetStatusWhatsApp.bind(this);
-  
   super(props)
 
   this.state ={
@@ -38,7 +34,7 @@ guid() {
 
 
 
-async handleGetMessageLog(event){
+ handleGetMessageLog = async (event)=>{
   event.preventDefault();
    document.getElementById("modal").click();
   
@@ -77,7 +73,7 @@ try {
 
 }
 
-async  handleGetStatusWhatsApp(result1){
+handleGetStatusWhatsApp = async (result1) =>{
 
  let resultArrayWhitStatusAndPhon = []
  let buscaSatatus = result1;
