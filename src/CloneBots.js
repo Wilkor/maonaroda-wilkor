@@ -54,7 +54,7 @@ try {
      return  err.data.error 
     }
 
-     if(response.status==200){
+     if(let response.status==200){
       //console.log(response.status)
        this.handleSetPublished(response.data.resource)
 
@@ -82,7 +82,7 @@ try {
      return  err.data.error 
     }
     
-    if(response.status==200){
+    if(let response.status==200){
     this.handleSetWorkingConfiguration(resource)
     }
 
@@ -110,7 +110,7 @@ try {
       
      return  err.data.error 
     }
-         if(response.status==200){
+         if(let response.status==200){
         this.handleGetWorkFlow()
          }
  }
@@ -132,7 +132,7 @@ try {
       
      return  err.data.error 
     }
-         if(response.status==200){
+         if(let response.status==200){
  
               this.handleSetPublishedFlow(response.data.resource)
          }
@@ -156,7 +156,7 @@ try {
       
      return  err.data.error 
     }
-         if(response.status==200){
+         if(let response.status==200){
        this.handleGetWorkFlowPublished(resource)
          }
  }
@@ -181,7 +181,7 @@ try {
       
      return  err.data.error 
     }
-         if(response.status==200){
+         if(let response.status==200){
         this.handleGetGlobais();
          }
  }
@@ -205,7 +205,7 @@ try {
       
      return  err.data.error 
     }
-         if(response.status==200){
+         if(let response.status==200){
           this.handleGetGlobaisPublished(response.data.resource)
          }
  }
@@ -233,7 +233,7 @@ try {
       
      return  err.data.error 
     }
-         if(response.status==200){
+         if(let response.status==200){
         
          document.getElementById("modal").click()
          }
