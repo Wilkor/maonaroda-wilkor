@@ -56,7 +56,8 @@ try {
 
     
       //console.log(response.status)
-       this.handleSetPublished(response.data.resource)
+      let result = response.data.resource;
+       this.handleSetPublished(result)
 
      
 }
@@ -133,8 +134,8 @@ try {
      return  err.data.error 
     }
          
- 
-              this.handleSetPublishedFlow(response.data.resource)
+              let result = response.data.resource; 
+              this.handleSetPublishedFlow(result)
          
  }
 
@@ -205,8 +206,8 @@ try {
       
      return  err.data.error 
     }
-       
-          this.handleGetGlobaisPublished(response.data.resource)
+          let result  =response.data.resource;
+          this.handleGetGlobaisPublished(result)
          
  }
 
