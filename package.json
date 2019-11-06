@@ -1,6 +1,9 @@
 {
   "name": "react",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.13.0"
+  },
   "private": true,
   "dependencies": {
     "apisauce": "1.0.3",
