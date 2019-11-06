@@ -9,16 +9,6 @@ import './style.css';
 
 class Home extends Component {
 constructor(props){
-  
-  this.handleGetGlobais = this.handleGetGlobais.bind(this)
-  this.handleGetGlobaisPublished = this.handleGetGlobais.bind(this);
-  this.handleGetOrigin = this.handleGetOrigin.bind(this);
-  this.handleGetWorkFlow = this.handleGetWorkFlow.bind(this);
-  this.handleGetWorkFlowPublished = this.handleGetWorkFlowPublished.bind(this);
-  this.handleSetPublished = this.handleSetPublished.bind(this);
-  this.handleSetPublishedFlow = this.handleSetPublishedFlow.bind(this);
-  this.handleSetWorkingConfiguration = this.handleSetWorkingConfiguration.bind(this)
-
 
   super(props)
 
@@ -28,8 +18,7 @@ constructor(props){
   }
 }
 
-  
-guid() {
+ guid() {
       function s4() {
         return Math.floor((1 + Math.random()) * 0x10000)
           .toString(16)
@@ -39,7 +28,7 @@ guid() {
         s4() + '-' + s4() + s4() + s4();
 }
   
-async handleGetOrigin(event){
+handleGetOrigin = async (event) =>{
 event.preventDefault();
 document.getElementById("modal").click()
 if(!this.state.keyOrigem && !this.state.keyOrigem){
@@ -65,17 +54,16 @@ try {
      return  err.data.error 
     }
 
-    
+     if(response.status==200){
       //console.log(response.status)
-      let result = response.data.resource;
-       this.handleSetPublished(result)
+       this.handleSetPublished(response.data.resource)
 
-     
+     }
 }
 
 
 
- async handleSetPublished (resource){
+ handleSetPublished  = async (resource)=>{
 
    let apiKeyDestino = this.state.keyDestino
 
@@ -94,9 +82,9 @@ try {
      return  err.data.error 
     }
     
-
+    if(this.response.status==200){
     this.handleSetWorkingConfiguration(resource)
-    
+    }
 
  }
 
@@ -104,7 +92,7 @@ try {
 
 
 
-  async handleSetWorkingConfiguration (resource){
+ handleSetWorkingConfiguration  = async (resource) =>{
 
     let apiKeyDestino = this.state.keyDestino
 
@@ -122,13 +110,13 @@ try {
       
      return  err.data.error 
     }
-       
+         if(response.status==200){
         this.handleGetWorkFlow()
-         
+         }
  }
 
 
-   async handleGetWorkFlow (){
+  handleGetWorkFlow =  async ()=>{
 
     let apiKeyOrigem = this.state.keyOrigem
 
@@ -144,13 +132,13 @@ try {
       
      return  err.data.error 
     }
-         
-              let result = response.data.resource; 
-              this.handleSetPublishedFlow(result)
-         
+         if(response.status==200){
+ 
+              this.handleSetPublishedFlow(response.data.resource)
+         }
  }
 
-   async handleSetPublishedFlow (resource){
+    handleSetPublishedFlow = async(resource)=>{
 
     let apiKeyDestino = this.state.keyDestino
 
@@ -168,13 +156,13 @@ try {
       
      return  err.data.error 
     }
-         
+         if(response.status==200){
        this.handleGetWorkFlowPublished(resource)
-         
+         }
  }
 
 
-async handleGetWorkFlowPublished (resource){
+ handleGetWorkFlowPublished = async(resource)=>{
 
    
     let apiKeyDestino = this.state.keyDestino
@@ -193,14 +181,14 @@ try {
       
      return  err.data.error 
     }
-  
+         if(response.status==200){
         this.handleGetGlobais();
-       
+         }
  }
 
 
 
-async handleGetGlobais (){
+ handleGetGlobais =  async ()=>{
 
    
     let apiKeyOrigem = this.state.keyOrigem
@@ -217,16 +205,16 @@ try {
       
      return  err.data.error 
     }
-          let result  =response.data.resource;
-          this.handleGetGlobaisPublished(result)
-         
+         if(response.status==200){
+          this.handleGetGlobaisPublished(response.data.resource)
+         }
  }
 
 
  
 
 
- async handleGetGlobaisPublished (resource){
+  handleGetGlobaisPublished = async(resource)=>{
 
    
     let apiKeyDestino = this.state.keyDestino
@@ -245,10 +233,10 @@ try {
       
      return  err.data.error 
     }
-      
+         if(response.status==200){
         
          document.getElementById("modal").click()
-         
+         }
 
  }
 
@@ -333,7 +321,6 @@ try {
           </>
     );
   }
- 
 }
 
 export default Home;
