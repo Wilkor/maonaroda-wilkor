@@ -1,12 +1,13 @@
 {
   "name": "react",
-   "version": "0.1.1",
+   "version": "1.1.1",
   "private": true,
   "dependencies": {
     "apisauce": "1.0.3",
     "bootstrap": "^4.3.1",
     "font-awesome": "4.7.0",
     "jquery": "3.4.1",
+    "node": "12.13.0",
     "popper.js": "1.15.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
