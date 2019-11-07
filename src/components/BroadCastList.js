@@ -36,6 +36,8 @@ guid() {
 
  handleGetMessageLog = async (event)=>{
   event.preventDefault();
+  document.getElementById("modal").click()
+
 
      if(!localStorage.getItem('@heavybots:token')){
 
