@@ -1,5 +1,5 @@
 
-import api from './services-api';
+import api from '../services/services-api';
 
 
 const getRules  = async () =>{
@@ -23,14 +23,14 @@ try {
    to: "postmaster@desk.msging.net",
    method: "get",
    uri: "/monitoring/waiting-tickets?version=2"
-   
+
   },{ headers: { 'Content-Type': 'application/json'} } );
-       
+
           return response.data.resource.items
 
     } catch (err) {
-      
-     return  err.data.error 
+
+     return  err.data.error
     }
 
 }

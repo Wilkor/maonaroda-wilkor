@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-//import { render } from 'react-dom';
-//import Hello from './Hello';
 import ReactFileReader from 'react-file-reader';
-import InsertsResources from './setResources';
-import deleteResources from './deleteResources';
-import getResources from './getResources';
-
+import InsertsResources from '../controllers/setResources';
+import deleteResources from '../controllers/deleteResources';
+import getResources from '../controllers/getResources';
 
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 
 
-import './style.css';
+import '../style.css';
 
 class Home extends Component {
   constructor() {

@@ -1,10 +1,8 @@
 
-import api from './services-api';
+import api from '../services/services-api';
 
 
 const deleteResource  = async (id) =>{
-
-
 
     function guid() {
       function s4() {
@@ -19,17 +17,9 @@ const deleteResource  = async (id) =>{
 try {
 
      const response =  await api.post('/commands', {
-
-        id: guid(),
-        to: "postmaster@desk.msging.net",
-        method: "set",
-        uri: "/tickets/change-status",
-        type: "application/vnd.iris.ticket+json",
-        resource: {
-           id: id,
-          status: "ClosedClient"
-          }
-
+      id:guid(),
+      method:"delete",
+      uri:"/resources/"+id
       },{ headers: { 'Content-Type': 'application/json'} } );
 
           return response

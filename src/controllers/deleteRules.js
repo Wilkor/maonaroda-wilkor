@@ -1,5 +1,4 @@
-
-import api from './services-api';
+import api from '../services/services-api';
 
 
 const deleteRules  = async (id) =>{
@@ -22,12 +21,12 @@ try {
       to:"postmaster@desk.msging.net",
       uri:"/rules/"+id
       },{ headers: { 'Content-Type': 'application/json'} } );
-       
+
           return response
 
     } catch (err) {
-      
-     return  err.data.error 
+
+     return  err.data.error
     }
 
 }

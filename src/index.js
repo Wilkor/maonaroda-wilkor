@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Router from './Router'
+import Router from '../src/routes/Router'
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
@@ -33,14 +33,14 @@ changeState = (arg) =>{
 render(props) {
     return (
       <>
-      
+
      <Router>
       </Router>
 
-      
-    
+
+
       </>
-     
+
     );
   }
 }

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-//import { render } from 'react-dom';
-//import Hello from './Hello';
-//import ReactFileReader from 'react-file-reader';
-import getTickets from './getTickets'
-import CloseTickets from './closeTickets'
+import getTickets from '../controllers/getTickets'
+import CloseTickets from '../controllers/closeTickets'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
 
-import './style.css';
+
+import '../style.css';
 
 class Home extends Component {
   constructor() {

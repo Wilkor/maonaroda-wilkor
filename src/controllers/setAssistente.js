@@ -1,5 +1,5 @@
 
-import api from './services-api';
+import api from '../services/services-api';
 
 
 const SetAssistente  = async (key,value) =>{
@@ -15,29 +15,29 @@ const SetAssistente  = async (key,value) =>{
 }
 
 try {
-     const response =  await api.post('/commands', { 
+     const response =  await api.post('/commands', {
           "id": guid(),
           "to": "postmaster@desk.msging.net",
           "method": "set",
           "uri": "/attendants",
           "type": "application/vnd.iris.desk.attendant+json",
-            "resource": {  	
+            "resource": {
               "identity":value.trim()+"@blip.ai",
               "teams": [key.trim()]  }
               },
          {
             headers: {'Content-Type': 'application/json'}}
-             
+
         );
 
 
       const { data } = response.data
-    
+
      return data
 
     } catch (err) {
-      
-     return  err.data.error 
+
+     return  err.data.error
     }
 
 }

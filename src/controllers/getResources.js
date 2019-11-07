@@ -1,5 +1,5 @@
 
-import api from './services-api';
+import api from '../services/services-api';
 
 
 const getResouces  = async () =>{
@@ -11,12 +11,12 @@ try {
       method:"get",
       uri: "/resources?$take=100000"
       },{ headers: { 'Content-Type': 'application/json'} } );
-       
+
           return response.data.resource.items
 
     } catch (err) {
-      
-     return  err.data.error 
+
+     return  err.data.error
     }
 
 }

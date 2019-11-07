@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-//import { render } from 'react-dom';
-//import Hello from './Hello';
-//import ReactFileReader from 'react-file-reader';
-import insertContact from './setContact'
-
+import insertContact from '../controllers/setContact'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
 
-import './style.css';
+
+import '../style.css';
 
 class Home extends Component {
   constructor() {

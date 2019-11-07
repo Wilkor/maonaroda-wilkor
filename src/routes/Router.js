@@ -1,14 +1,14 @@
 import React from "react";
 //import { isAuthenticated } from "./auth";
-import Navbar from './Navbar';
-import Home from './Home';
-import Rules from './Rules';
-import Cadastro from './CadastroAssistente';
-import Contatos from './Contatos';
-import Tickets from './CloseTicket';
-import Config from './Config';
-import Clone from './CloneBots';
-import BroadCast from './BroadCastList'
+import Navbar from '../components/Navbar';
+import Home from '../components/Home';
+import Rules from '../components/Rules';
+import Cadastro from '../components/CadastroAssistente';
+import Contatos from '../components/Contatos';
+import Tickets from '../components/CloseTicket';
+import Config from '../components/Config';
+import Clone from '../components/CloneBots';
+import BroadCast from '../components/BroadCastList'
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 

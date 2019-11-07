@@ -1,5 +1,4 @@
-
-import api from './services-api';
+import api from '../services/services-api';
 
 
 const SetContact  = async () =>{
@@ -15,34 +14,34 @@ const SetContact  = async () =>{
 }
 
 try {
-     const response =  await api.post('/commands', { 
+     const response =  await api.post('/commands', {
           "id": guid(),
           "method": "set",
           "uri": '/contacts',
           "type": 'application/vnd.lime.contact+json',
-           
-            "resource": {  
+
+            "resource": {
               "identity":"11933352091",
                "name": 'Chibani',
                "gender":'male',
                 "extras": {
-                  "telefone": '11933352091'      
+                  "telefone": '11933352091'
                   }
                 }
               },
          {
             headers: {'Content-Type': 'application/json'}}
-             
+
         );
 
 
       const { data } = response.data
-    
+
      return data
 
     } catch (err) {
-      
-     return  err.data.error 
+
+     return  err.data.error
     }
 
 }

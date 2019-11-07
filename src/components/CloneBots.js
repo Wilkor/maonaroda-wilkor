@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 //import { render } from 'react-dom';
-import api from './getAndSettingConfig'
+import api from '../services/getAndSettingConfig'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
 
-import './style.css';
+import '../style.css';
 
 class Home extends Component {
 

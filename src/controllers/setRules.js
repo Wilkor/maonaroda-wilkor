@@ -1,5 +1,5 @@
 
-import api from './services-api';
+import api from '../services/services-api';
 
 
 const SetRules  = async (key) =>{
@@ -25,7 +25,7 @@ try {
           "method": "set",
           "uri": "/rules",
           "type":"application/vnd.iris.desk.rule+json",
-          "resource": {	 
+          "resource": {
               "id":hash,
               "title": key,
               "team": key,
@@ -33,16 +33,16 @@ try {
               "relation": "Equals",
               "isActive": true,
               "values": [key],
-         
+
             }
       },{ headers: { 'Content-Type': 'application/json'} } );
       const { data } = response.data
-    
+
      return data
 
     } catch (err) {
-      
-     return  err.data.error 
+
+     return  err.data.error
     }
 
 }

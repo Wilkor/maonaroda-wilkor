@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 //import {  } from 'react-dom';
-import api from './services-api';
+import api from '../../src/services/services-api';
 //import List from './StatusList'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
 
-import './style.css';
+import '../style.css';
 
 class Home extends Component {
 constructor(props){

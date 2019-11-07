@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-//import { render } from 'react-dom';
-//import Hello from './Hello';
 import ReactFileReader from 'react-file-reader';
-import setRules from './setRules'
-import getRules from './getRules'
-import deleteRules from './deleteRules'
+import setRules from '../controllers/setRules'
+import getRules from '../controllers/getRules'
+import deleteRules from '../controllers/deleteRules'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
 
-import './style.css';
+import '../style.css';
 
 class Home extends Component {
   constructor() {
@@ -58,14 +56,8 @@ handleFiles = files => {
     reader.onload = function(e) {
 
     let splitArray = reader.result.split("\n");
-    //let array = [];
-
-
      for(var i= 0 ;i < splitArray.length-1;i++){
         setRules(splitArray[i].split(";")[0].trim())
-
-       //console.log(splitArray[i].split(";")[0].trim())
-
      }
 
      alert("Regras Cadastradas")

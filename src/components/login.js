@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import login from './loginServices'
+import login from '../services/loginServices'
 import { Link } from 'react-router-dom';
 import decode from 'jwt-decode';
 
@@ -14,9 +14,9 @@ constructor(props){
 
       email:'',
       password:''
-  
+
   }
-    
+
 
  }
 
@@ -30,7 +30,7 @@ constructor(props){
 
 
 render(){
- 
+
  return (
   <>
      <div className="container">
@@ -46,15 +46,15 @@ render(){
             <img className="mr-3"
               src="" width="10%"
               alt=""/>
-           
+
             <form className="form-signin">
               <input type="text" id="email" onChange = {(event) => this.setState({email:event.target.value})} className="form-control mb-2" placeholder="Endereço de email" required autofocus/>
               <input  type="password" onChange = {(event) => this.setState({password:event.target.value})}  className="form-control mb-2" placeholder="Senha" required/>
 
               <button className="btn btn-lg btn-primary btn-block mb-1" onClick={(event) => this.handleClick(event)}>Logar</button>
-         
+
            <div id="links-login">
-              <Link id="link-login" to="/forgot" className="float-right">Esqueceu sua senha?</Link> 
+              <Link id="link-login" to="/forgot" className="float-right">Esqueceu sua senha?</Link>
         <Link  id="link-login" to="/signup" className="float-right">Não tem uma conta?</Link>
         </div>
             </form>
@@ -80,10 +80,10 @@ render(){
         </button>
       </div>
       <div className="modal-body">
-     
+
 
   <div className="my-3 p-3 bg-white">
-   
+
     <div className="media text-muted pt-3">
       <p className="media-body pb-3 mb-0 lh-125 border-gray">
       </p>
@@ -102,7 +102,7 @@ render(){
 
 
       </div>
-     
+
     </div>
   </div>
 </div>

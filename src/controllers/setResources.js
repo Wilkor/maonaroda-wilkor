@@ -1,10 +1,10 @@
 
-import api from './services-api';
+import api from '../services/services-api';
 
 
-const deleteResource  = async (id) =>{
+const SetResource  = async (key,value,tipo) =>{
 
-    function guid() {
+  function guid() {
       function s4() {
         return Math.floor((1 + Math.random()) * 0x10000)
           .toString(16)
@@ -15,19 +15,22 @@ const deleteResource  = async (id) =>{
 }
 
 try {
-
      const response =  await api.post('/commands', {
-      id:guid(),
-      method:"delete",
-      uri:"/resources/"+id
+        "id": guid(),
+        "method": "set",
+        "uri":  encodeURI("/resources/"+key.trim()),
+           "type": "text/plain",
+           "resource": value.trim()
+
       },{ headers: { 'Content-Type': 'application/json'} } );
-       
-          return response
+      const { data } = response.data
+
+     return data
 
     } catch (err) {
-      
-     return  err.data.error 
+
+     return  err.data.error
     }
 
 }
-export default deleteResource;
+export default SetResource;
