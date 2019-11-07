@@ -4,6 +4,8 @@ import api from './services-api';
 
 const deleteResource  = async (id) =>{
 
+
+
     function guid() {
       function s4() {
         return Math.floor((1 + Math.random()) * 0x10000)
@@ -27,14 +29,14 @@ try {
            id: id,
           status: "ClosedClient"
           }
-          
+
       },{ headers: { 'Content-Type': 'application/json'} } );
-       
+
           return response
 
     } catch (err) {
-      
-     return  err.data.error 
+
+     return  err.data.error
     }
 
 }

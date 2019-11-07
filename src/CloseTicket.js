@@ -22,6 +22,15 @@ class Home extends Component {
 
 
  handleGetTickets() {
+
+      if(!localStorage.getItem('@heavybots:token')){
+
+       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
+
+       return false;
+
+     }
+
   let result  =  getTickets()
 
 

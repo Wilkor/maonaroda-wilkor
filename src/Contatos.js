@@ -21,6 +21,14 @@ class Home extends Component {
 
 handleFiles = files => {
 
+     if(!localStorage.getItem('@heavybots:token')){
+
+       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
+
+       return false;
+
+     }
+
      insertContact()
 
 }

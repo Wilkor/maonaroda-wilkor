@@ -39,7 +39,7 @@ guid() {
 
      if(!localStorage.getItem('@heavybots:token')){
 
-       alert("Confiure uma ApiKey para realizar esta operação");
+       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
 
        return false;
 

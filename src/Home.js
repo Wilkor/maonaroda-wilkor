@@ -25,6 +25,15 @@ class Home extends Component {
 
 
  handleGetResources() {
+
+      if(!localStorage.getItem('@heavybots:token')){
+
+       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
+
+       return false;
+
+     }
+
   let result  =  getResources()
 
    result.then( data =>{
