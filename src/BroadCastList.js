@@ -36,7 +36,14 @@ guid() {
 
  handleGetMessageLog = async (event)=>{
   event.preventDefault();
-   document.getElementById("modal").click();
+
+     if(!localStorage.getItem('@heavybots:token')){
+
+       alert("Confiure uma ApiKey para realizar esta operação");
+
+       return false;
+
+     }
 
 
      const response =  await api.post('/commands', {
