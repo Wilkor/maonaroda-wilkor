@@ -8,7 +8,7 @@ api.addAsyncRequestTransform(request => async () => {
 
  let  token = null;
 
-  if(!!localStorage.getItem('@heavybots:token')){
+  if(localStorage.getItem('@heavybots:token')){
 
      token = localStorage.getItem('@heavybots:token')
 
