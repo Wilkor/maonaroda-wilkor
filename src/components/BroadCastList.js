@@ -45,7 +45,7 @@ guid() {
 
 
 
-     if(!localStorage.getItem('@heavybots:token')){
+     if(!localStorage.getItem('@heavybots:token') || localStorage.getItem('@heavybots:token') ===null ){
 
 
     NotificationManager.info('No menu configurações, adicione uma ApiKey para realizar esta operação!', 'Informação!');
