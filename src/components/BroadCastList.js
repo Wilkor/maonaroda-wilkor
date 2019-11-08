@@ -65,7 +65,9 @@ guid() {
             headers: {'Content-Type': 'application/json'}}
 
         );
-
+         if(response.status ===200){
+             document.getElementById("modal").click()
+         }
       const { data } = response
       let resultItems = data.resource.items;
 
@@ -79,12 +81,8 @@ guid() {
 
              if(result.resource.length===0){
 
-
                  NotificationManager.warning('Não houve resultados para listar!', 'Concluido!');
-
-
                  return false
-
 
              }else{
                 document.getElementById("modal").click()
