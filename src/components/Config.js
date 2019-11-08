@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
@@ -25,7 +28,7 @@ event.preventDefault();
 let apiKey = this.state.apikey;
 
 localStorage.setItem('@heavybots:token',apiKey);
-alert("Dados gravados com sucesso!")
+NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
 }
   render() {
     return (
@@ -49,6 +52,7 @@ alert("Dados gravados com sucesso!")
 
 
             </div>
+             <NotificationContainer/>
         </main>
 
           </>

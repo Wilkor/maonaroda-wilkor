@@ -3,7 +3,8 @@ import ReactFileReader from 'react-file-reader';
 import InsertsResources from '../controllers/setResources';
 import deleteResources from '../controllers/deleteResources';
 import getResources from '../controllers/getResources';
-
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -25,7 +26,7 @@ class Home extends Component {
 
       if(!localStorage.getItem('@heavybots:token')){
 
-       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
+       NotificationManager.success('No menu configurações, adicione uma ApiKey para realizar esta operação!', 'Informação!');
 
        return false;
 
@@ -43,20 +44,13 @@ class Home extends Component {
         (function(index) {
 
                   setTimeout(function() {
-
                   deleteResources(element)
-
-
                     }, x*200);
 
                   })(1);
-              //console.log(element)
-
               x++;
      })
-
          alert("Regras Deletadas")
-
    }).catch(error =>{
 
      console.log(error)
@@ -79,11 +73,6 @@ class Home extends Component {
 // eslint-disable-next-line
     var array = [];
 
-
-
-
-
-
      for(let x = 0, ln = splitArray.length; x < ln; x++){
 
           (function(index) {
@@ -92,15 +81,11 @@ class Home extends Component {
 
             InsertsResources(splitArray[x].split(";")[0],splitArray[x].split(";")[1])
 
-
             }, x*100);
 
           })(x);
 
-       // InsertsResources(splitArray[x].split(";")[0],splitArray[x].split(";")[1])
      }
-
-
 
         alert("Recursos Cadastrados")
 
@@ -119,15 +104,16 @@ class Home extends Component {
               <br/>
 
 
-               <div class="container-button">
-                          <button class="btn btn-primary btn" onClick={this.handleGetResources}>Deletar Resources</button>
- <ReactFileReader handleFiles={this.handleFiles}>
-                            <button class="btn btn-primary btn" >Carregar Resources</button>
-  </ReactFileReader>
-                          </div>
+            <div class="container-button">
+                        <button class="btn btn-primary btn" onClick={this.handleGetResources}>Deletar Resources</button>
+            <ReactFileReader handleFiles={this.handleFiles}>
+                        <button class="btn btn-primary btn" >Carregar Resources</button>
+            </ReactFileReader>
+                        </div>
 
 
-        </div>
+            </div>
+                      <NotificationContainer/>
         </main>
 
           </>

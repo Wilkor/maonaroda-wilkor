@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-//import { render } from 'react-dom';
-//import Hello from './Hello';
 import ReactFileReader from 'react-file-reader';
 import InsertsResources from '../../src/controllers/setAssistente'
-
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
@@ -42,8 +41,7 @@ handleFiles = files => {
 
      }
 
-         alert("Assistente Cadastrado")
-
+       NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
     }
 
   reader.readAsText(files[0]);
@@ -60,6 +58,7 @@ handleFiles = files => {
                           <button class="btn btn-primary btn" >Carregar Assistentes</button>
                         </ReactFileReader>
         </div>
+         <NotificationContainer/>
         </main>
 
           </>

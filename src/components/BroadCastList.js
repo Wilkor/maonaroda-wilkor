@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-//import {  } from 'react-dom';
 import api from '../../src/services/services-api';
-//import List from './StatusList'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
-
 
 import '../style.css';
 
@@ -16,7 +16,8 @@ constructor(props){
   this.state ={
     keyOrigem:null,
     keyDestino:null,
-    statusWhatsApp:[]
+    statusWhatsApp:[],
+    sendNotification:null
   }
 
 }
@@ -34,14 +35,21 @@ guid() {
 
 
 
+
+
+
  handleGetMessageLog = async (event)=>{
+
+
   event.preventDefault();
-  document.getElementById("modal").click()
+
 
 
      if(!localStorage.getItem('@heavybots:token')){
 
-       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
+
+    NotificationManager.info('No menu configurações, adicione uma ApiKey para realizar esta operação!', 'Informação!');
+
 
        return false;
 
@@ -62,12 +70,26 @@ guid() {
       let resultItems = data.resource.items;
 
     var result = {
-         "resource":resultItems.filter((props)=>{ return props["pp"]})
-                    .map((e)=>{ return {"id":e.id, "data": e.metadata["#scheduler.when"].split(" ")[0]}})
-                    .filter((e)=>{ return e.data === "11/05/2019"})
+         "resource":resultItems
+                    .filter((props)=>{ return props["pp"]})
+                     .map((e)=>{ return {"id":e.id, "data": e.metadata["#scheduler.when"].split(" ")[0]}})
+                     .filter((e)=>{ return e.data === "11/07/2019"})
                 }
 
-     this.handleGetStatusWhatsApp(result);
+
+             if(result.resource.length===0){
+
+
+                 NotificationManager.warning('Não houve resultados para listar!', 'Concluido!');
+
+
+                 return false
+
+
+             }else{
+                document.getElementById("modal").click()
+                this.handleGetStatusWhatsApp(result);
+             }
 
 }
 
@@ -94,8 +116,9 @@ handleGetStatusWhatsApp = async (result1) =>{
  }
 
 this.setState({statusWhatsApp:resultArrayWhitStatusAndPhon})
-document.getElementById("modal").click()
 
+document.getElementById("modal").click()
+NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
 }
 
 
@@ -116,7 +139,8 @@ document.getElementById("modal").click()
 
               </div>
               <br/>
-                 <table class="table table-hover table-dark">
+
+                 <table className="table table-hover table-dark">
             <thead>
               <tr>
 
@@ -128,7 +152,7 @@ document.getElementById("modal").click()
 
 
             {this.state.statusWhatsApp.map((elemento)=>{
-                console.log(elemento)
+
               return (
                   <tr>
 
@@ -181,8 +205,11 @@ document.getElementById("modal").click()
             </div>
           </div>
 
+        <NotificationContainer/>
 
         </main>
+
+
 
           </>
     );

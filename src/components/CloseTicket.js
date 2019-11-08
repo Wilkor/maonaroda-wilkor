@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import getTickets from '../controllers/getTickets'
 import CloseTickets from '../controllers/closeTickets'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
@@ -23,8 +25,7 @@ class Home extends Component {
 
       if(!localStorage.getItem('@heavybots:token')){
 
-       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
-
+ NotificationManager.info('No menu configurações, adicione uma ApiKey para realizar esta operação', 'Informação!');
        return false;
 
      }
@@ -49,6 +50,7 @@ class Home extends Component {
    })
 
    document.getElementById("modal").click()
+    NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
 
 }
   render() {
@@ -104,7 +106,7 @@ class Home extends Component {
               </div>
             </div>
           </div>
-
+ <NotificationContainer/>
         </main>
 
           </>

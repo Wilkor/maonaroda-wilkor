@@ -4,6 +4,9 @@ import setRules from '../controllers/setRules'
 import getRules from '../controllers/getRules'
 import deleteRules from '../controllers/deleteRules'
 
+
+
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
@@ -22,13 +25,13 @@ class Home extends Component {
 
  handleGetRules() {
 
-      if(!localStorage.getItem('@heavybots:token')){
+    if(!localStorage.getItem('@heavybots:token')){
 
-       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
+    alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
 
-       return false;
+    return false;
 
-     }
+    }
 
   let result  =  getRules()
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-//import { render } from 'react-dom';
 import api from '../services/getAndSettingConfig'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
@@ -31,14 +32,14 @@ constructor(props){
 
 handleGetOrigin = async (event) =>{
 event.preventDefault();
-document.getElementById("modal").click()
-if(!this.state.keyOrigem && !this.state.keyOrigem){
 
-  alert("Faltam dados. Por favor, verifique as Keys origem e destino")
-  return false
+if(!this.state.keyOrigem && !this.state.keyOrigem){
+   NotificationManager.warning('Faltam dados. Por favor, verifique as Keys origem e destino!', 'Informação!');
+
+   return false
 }
 
-
+document.getElementById("modal").click()
 let apiKeyOrigem = this.state.keyOrigem;
 
 // eslint-disable-next-line
@@ -113,10 +114,7 @@ let apiKeyOrigem = this.state.keyOrigem;
      "uri": "/buckets/blip_portal:builder_working_flow?$take=100"
      },{headers: {'Content-Type': 'application/json','Authorization':apiKeyOrigem}});
 
-
-
-
-              this.handleSetPublishedFlow(response.data.resource)
+     this.handleSetPublishedFlow(response.data.resource)
 
  }
 
@@ -204,7 +202,7 @@ let apiKeyOrigem = this.state.keyOrigem;
 
 
          document.getElementById("modal").click()
-
+ NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
 
  }
 
@@ -283,7 +281,7 @@ let apiKeyOrigem = this.state.keyOrigem;
               </div>
             </div>
           </div>
-
+ <NotificationContainer/>
         </main>
 
           </>

@@ -35,7 +35,7 @@ img {
 
 .card-header,
 .wbg {
-  
+
   background-color: white;
 }
 
@@ -76,4 +76,23 @@ padding-left: 20px;
 
   padding-top:70px;
 
+}
+#success{
+
+  display: none
+}
+
+#info{
+
+  display: none
+}
+
+#warning{
+
+  display: none
+}
+
+#error{
+
+  display: none
 }

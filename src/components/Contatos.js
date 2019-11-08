@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import insertContact from '../controllers/setContact'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 
@@ -20,14 +23,14 @@ handleFiles = files => {
 
      if(!localStorage.getItem('@heavybots:token')){
 
-       alert("No menu configurações, adicione uma ApiKey para realizar esta operação");
+        NotificationManager.info('No menu configurações, adicione uma ApiKey para realizar esta operação', 'Informação!');
 
        return false;
 
      }
 
      insertContact()
-
+    NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
 }
   render() {
     return (
@@ -41,6 +44,7 @@ handleFiles = files => {
                           <button class="btn btn-primary btn"  onClick={this.handleFiles}  >Carregar Contatos</button>
 
         </div>
+          <NotificationContainer/>
         </main>
 
           </>
