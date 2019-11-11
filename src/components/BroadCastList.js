@@ -40,15 +40,22 @@ guid() {
 
  handleGetMessageLog = async (event)=>{
 
+   let dataFilter = new Date();
+   let dayWeek = dataFilter.getDate()<10 ? '0'+ dataFilter.getDate(): dataFilter.getDate();
+   let month =   (dataFilter.getMonth()+1) <10 ?'0'+dataFilter.getMonth():(dataFilter.getMonth()+1);
+   let year = dataFilter.getFullYear();
+
 
   event.preventDefault();
 
+  let token = localStorage.getItem('@heavybots:token');
+
+   console.log(typeof token)
+
+     if(!token || token === "null" ){
 
 
-     if(!localStorage.getItem('@heavybots:token') || localStorage.getItem('@heavybots:token') ===null ){
-
-
-    NotificationManager.info('No menu configurações, adicione uma ApiKey para realizar esta operação!', 'Informação!');
+    NotificationManager.error('No menu configurações, adicione uma ApiKey para realizar esta operação!', 'Erro');
 
 
        return false;
@@ -65,9 +72,7 @@ guid() {
             headers: {'Content-Type': 'application/json'}}
 
         );
-         if(response.status ===200){
-             document.getElementById("modal").click()
-         }
+
       const { data } = response
       let resultItems = data.resource.items;
 
@@ -75,8 +80,9 @@ guid() {
          "resource":resultItems
                     .filter((props)=>{ return props["pp"]})
                      .map((e)=>{ return {"id":e.id, "data": e.metadata["#scheduler.when"].split(" ")[0]}})
-                     .filter((e)=>{ return e.data === "11/07/2019"})
+                     .filter((e)=>{ return e.data === month+"/"+dayWeek+"/"+year})
                 }
+
 
 
              if(result.resource.length===0){
@@ -85,7 +91,7 @@ guid() {
                  return false
 
              }else{
-                document.getElementById("modal").click()
+
                 this.handleGetStatusWhatsApp(result);
              }
 
@@ -93,30 +99,40 @@ guid() {
 
 handleGetStatusWhatsApp = async (result1) =>{
 
- let resultArrayWhitStatusAndPhon = []
- let buscaSatatus = result1;
-
- for(var i = 0; i < buscaSatatus.resource.length;i++){
-
-    const response =  await api.post('/commands', {
-                "id": this.guid(),
-                "method": "get",
-                "uri": "/notifications?id="+buscaSatatus.resource[i].id+"&$skip=0&$take=10"
-                },{
-                    headers: {'Content-Type': 'application/json'}}
-                );
-              const { data } = response
-               let t  = data.resource.items.map((e)=>{return {"evento":e.event,"phone":e.from.split("-")[3]}})
-
-                resultArrayWhitStatusAndPhon.push(t);
-
-
- }
-
-this.setState({statusWhatsApp:resultArrayWhitStatusAndPhon})
 
 document.getElementById("modal").click()
-NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
+        let resultArrayWhitStatusAndPhon = []
+        let buscaSatatus = result1;
+
+
+        
+
+        for(var i = 0; i < buscaSatatus.resource.length;i++){
+
+            const response =  await api.post('/commands', {
+                        "id": this.guid(),
+                        "method": "get",
+                        "uri": "/notifications?id="+buscaSatatus.resource[i].id+"&$skip=0&$take=10"
+                        },{
+                            headers: {'Content-Type': 'application/json'}}
+                        );
+                    const { data } = response
+                    console.log(data.resource.items)
+                    let t  = data.resource.items.map((e)=>{return {"evento":e.event,"phone":e.from.split("/")[1].split("%40")[0]}})
+
+                        resultArrayWhitStatusAndPhon.push(t[0]);
+
+
+        }
+
+        console.log(resultArrayWhitStatusAndPhon)
+
+        let newArraySet =  [...new Map(resultArrayWhitStatusAndPhon.map(item => [item.phone, item])).values()]
+
+        this.setState({statusWhatsApp:newArraySet})
+
+        document.getElementById("modal").click()
+        NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
 }
 
 
@@ -154,8 +170,8 @@ NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
               return (
                   <tr>
 
-                    <td>{elemento[0].phone}</td>
-                    <td>{elemento[0].evento}</td>
+                    <td>{elemento.phone}</td>
+                    <td>{elemento.evento}</td>
 
                     </tr>
                    )

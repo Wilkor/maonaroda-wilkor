@@ -15,22 +15,41 @@ constructor(props){
   super(props)
 
   this.state ={
-    apikey:null
+    apikey:localStorage.getItem('@heavybots:token')
   }
+
+
+
+}
+handleDeleteLocalStorage  = ()=>{
+
+localStorage.removeItem("@heavybots:token");
+NotificationManager.success('Dados excluidos com sucesso!', 'Concluido!');
+ this.setState({apiKey:null});
+
 }
 
 
 
 handleLocalStorage (event){
 
-
 event.preventDefault();
 let apiKey = this.state.apikey;
 
+
+if(!apiKey || apiKey.split(" ")[0] !== "Key" ){
+
+NotificationManager.error('Adicione um chave valida!', 'Erro!');
+ return false
+}
+
 localStorage.setItem('@heavybots:token',apiKey);
-NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
+
+NotificationManager.success('Dados gravados com sucesso!', 'Concluido!');
+
 }
   render() {
+
     return (
           <>
 
@@ -42,15 +61,20 @@ NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
                 <label for="exampleFormControlInput1">Key</label>
                 <input type="apikey" className="form-control"
                onChange = {(event) => this.setState({apikey:event.target.value})}
-                 id="exampleFormControlInput1" />
+                 id="exampleFormControlInput1" value={this.state.apikey}/>
           </div>
 
+
+
+               { this.state.apiKey === undefined?
               <div class="container-button">
                <button class="btn btn-primary btn" onClick={(event) => this.handleLocalStorage(event)}>Gravar</button>
 
+              </div>: <div class="container-button">
+               <button class="btn btn-primary btn" onClick={(event) => this.handleDeleteLocalStorage(event)}>Excluir</button>
+
               </div>
-
-
+              }
             </div>
              <NotificationContainer/>
         </main>
