@@ -1,10 +1,18 @@
-import React,{} from 'react';
+import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
 
-const Menu = () =>{
 
-   return (
+class Menu extends Component {
 
+constructor(props){
+
+  super(props)
+}
+
+   render (){
+       
+        return (
+       <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
       <Link className="navbar-brand" to="#"><img src="https://raw.githubusercontent.com/Wilkor/Chat-bot-test/master/14134081Untitled-3-512.png" alt="" width="50"/></Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,13 +46,17 @@ const Menu = () =>{
 
             </div>
           </li>
+           <li class="nav-item">
+            <Link  className="nav-link"  to='/logout'>Logout</Link>
+            </li>
 
         </ul>
       </div>
     </nav>
-
-   )
-
+    </>
+        )  
+   }
+       
 }
 
 export default Menu;
