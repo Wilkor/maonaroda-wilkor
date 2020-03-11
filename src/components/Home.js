@@ -47,7 +47,7 @@ class Home extends Component {
                   deleteResources(element)
                   }, x*index);
 
-                  })(60);
+                  })(30);
               x++;
      })
          alert("Regras Deletadas")
@@ -83,7 +83,7 @@ class Home extends Component {
 
           },x*index);
 
-          })(60);
+          })(30);
 
      }
 
