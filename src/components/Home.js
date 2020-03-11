@@ -45,7 +45,7 @@ class Home extends Component {
 
                   setTimeout(function() {
                   deleteResources(element)
-                    }, x*200);
+                    }, 500);
 
                   })(1);
               x++;
