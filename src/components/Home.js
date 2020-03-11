@@ -45,9 +45,9 @@ class Home extends Component {
 
                   setTimeout(function() {
                   deleteResources(element)
-                    }, index);
+                  }, x*index);
 
-                  })(800);
+                  })(0.8);
               x++;
      })
          alert("Regras Deletadas")
