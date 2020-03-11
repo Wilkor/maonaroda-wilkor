@@ -72,7 +72,7 @@ class Home extends Component {
    console.log(splitArray);
 // eslint-disable-next-line
     var array = [];
-
+    var count  = 0;
      for(let x = 0, ln = splitArray.length; x < ln; x++){
 
           (function(index) {
@@ -81,9 +81,14 @@ class Home extends Component {
 
             InsertsResources(splitArray[x].split(";")[0],splitArray[x].split(";")[1])
 
-          },x*index);
+          },count*index);
 
           })(50);
+
+          if(count >1000){
+              count = 0
+          }
+       count++;
 
      }
 
