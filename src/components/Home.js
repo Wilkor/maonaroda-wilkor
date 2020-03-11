@@ -45,7 +45,7 @@ class Home extends Component {
 
                   setTimeout(function() {
                   deleteResources(element)
-                    }, 100);
+                    }, 250);
 
                   })(1);
               x++;
@@ -81,7 +81,7 @@ class Home extends Component {
 
             InsertsResources(splitArray[x].split(";")[0],splitArray[x].split(";")[1])
 
-            },100);
+            },250);
 
           })(x);
 
