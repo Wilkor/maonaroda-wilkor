@@ -84,7 +84,7 @@ class Home extends Component {
           },x*index);
 
           })(70);
-       count++;
+       
 
      }
 
