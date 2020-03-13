@@ -47,7 +47,7 @@ class Home extends Component {
                   deleteResources(element)
                   }, x*index);
 
-                  })(50);
+                  })(70);
               x++;
      })
          alert("Regras Deletadas")
@@ -72,7 +72,7 @@ class Home extends Component {
    console.log(splitArray);
 // eslint-disable-next-line
     var array = [];
-    var count  = 0;
+
      for(let x = 0, ln = splitArray.length; x < ln; x++){
 
           (function(index) {
@@ -83,11 +83,7 @@ class Home extends Component {
 
           },count*index);
 
-          })(50);
-
-          if(count >1000){
-              count = 0
-          }
+          })(70);
        count++;
 
      }
