@@ -81,7 +81,7 @@ class Home extends Component {
 
             InsertsResources(splitArray[x].split(";")[0],splitArray[x].split(";")[1])
 
-          },count*index);
+          },x*index);
 
           })(70);
        count++;
