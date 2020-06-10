@@ -2,7 +2,7 @@
 import api from '../services/services-api';
 
 
-const SetAssistente  = async (key,value) =>{
+const SetAssistente  = async (team,user) =>{
 
   function guid() {
       function s4() {
@@ -16,14 +16,15 @@ const SetAssistente  = async (key,value) =>{
 
 try {
      const response =  await api.post('/commands', {
+       
           "id": guid(),
           "to": "postmaster@desk.msging.net",
           "method": "set",
           "uri": "/attendants",
           "type": "application/vnd.iris.desk.attendant+json",
             "resource": {
-              "identity":value.trim()+"@blip.ai",
-              "teams": [key.trim()]  }
+              "identity":user.trim()+"@blip.ai",
+              "teams": [team.trim()]  }
               },
          {
             headers: {'Content-Type': 'application/json'}}
