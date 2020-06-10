@@ -2,7 +2,7 @@
 import api from '../services/services-api';
 
 
-const SetAssistente  = async (team,user) =>{
+const SetAssistente  = async (user,team) =>{
 
   function guid() {
       function s4() {
