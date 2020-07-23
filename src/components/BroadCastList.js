@@ -66,7 +66,7 @@ guid() {
      const response =  await api.post('/commands', {
           id:this.guid(),
           method: "get",
-          uri: "/messages?$take=10000&$skip=0"
+          uri: "/messages?$take=100&$skip=0"
           },
          {
             headers: {'Content-Type': 'application/json'}}
