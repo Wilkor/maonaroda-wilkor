@@ -1,7 +1,7 @@
 import { create } from 'apisauce';
 
 const api = create({
-  baseURL: 'https://http.msging.net',
+  baseURL: 'https://safra.http.msging.net',
 });
 
 api.addAsyncRequestTransform(request => async () => {
