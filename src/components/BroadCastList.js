@@ -112,13 +112,16 @@ document.getElementById("modal").click()
             const response =  await api.post('/commands', {
                         "id": this.guid(),
                         "method": "get",
-                        "uri": "/notifications?id="+buscaSatatus.resource[i].id+"&$skip=0&$take=10"
+                        "uri": "/notifications?id="+buscaSatatus.resource[i].id+"&$skip=0&$take=100"
                         },{
                             headers: {'Content-Type': 'application/json'}}
                         );
                     const { data } = response
                     console.log(data.resource.items)
-                    let t  = data.resource.items.map((e)=>{return {"evento":e.event,"phone":e.from.split("/")[1].split("%40")[0]}})
+                    let t  = data.resource.items.map((e)=>{
+                      return {
+                        "evento":e.event,
+                        "phone":e.id.split("@")[0]}})
 
                         resultArrayWhitStatusAndPhon.push(t[0]);
 
