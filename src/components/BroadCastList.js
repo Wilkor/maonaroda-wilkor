@@ -124,7 +124,7 @@ document.getElementById("modal").click()
                     let t  = data.resource.items.map((e)=> {
                       return {
                         "evento":e.event,
-                        "phone":e.id.split("@")[0]
+                        "phone":e.from.split("@")[0]
                          }
                         })
 
