@@ -40,6 +40,7 @@ guid() {
 
  handleGetMessageLog = async (event)=>{
 
+  document.getElementById("modal").click()
    let dataFilter = new Date();
    let dayWeek = dataFilter.getDate()<10 ? '0'+ dataFilter.getDate(): dataFilter.getDate();
    let month =   (dataFilter.getMonth()+1) <10 ?'0'+dataFilter.getMonth():(dataFilter.getMonth()+1);
@@ -50,13 +51,9 @@ guid() {
 
   let token = localStorage.getItem('@heavybots:token');
 
-   console.log(typeof token)
-
      if(!token || token === "null" ){
 
-
-    NotificationManager.error('No menu configurações, adicione uma ApiKey para realizar esta operação!', 'Erro');
-
+      NotificationManager.error('No menu configurações, adicione uma ApiKey para realizar esta operação!', 'Erro');
 
        return false;
 
@@ -102,13 +99,8 @@ guid() {
 
 handleGetStatusWhatsApp = async (result1) =>{
 
-
-document.getElementById("modal").click()
         let resultArrayWhitStatusAndPhon = []
         let buscaSatatus = result1;
-
-
-        
 
         for(var i = 0; i < buscaSatatus.resource.length;i++){
 
@@ -120,21 +112,18 @@ document.getElementById("modal").click()
                             headers: {'Content-Type': 'application/json'}}
                         );
                     const { data } = response
-                    console.log(data.resource.items)
                     let t  = data.resource.items.map((e)=> {
                       return {
                         "evento":e.event,
                         "phone":e.from.split("@")[0],
                         "data": buscaSatatus.resource[i].data
                          }
-                        }).filter((e) => e.phone !== "postmaster" && e.phone !== "safraprodconsigbiowa" )
+                        })
 
                         resultArrayWhitStatusAndPhon.push(t[0]);
 
-
         }
 
-        console.log(resultArrayWhitStatusAndPhon)
 
         let newArraySet =  [...new Map(resultArrayWhitStatusAndPhon.map(item => [item.phone, item])).values()]
 
@@ -143,10 +132,6 @@ document.getElementById("modal").click()
         document.getElementById("modal").click()
         NotificationManager.success('Operação realizada com sucesso!', 'Concluido!');
 }
-
-
-
-
 
 
   render() {
