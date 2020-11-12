@@ -127,7 +127,7 @@ document.getElementById("modal").click()
                         "phone":e.from.split("@")[0],
                         "data": buscaSatatus.resource[i].data
                          }
-                        }).filter((e) => e.evento !== "postmaster" && e.evento !== "safraprodconsigbiowa" )
+                        }).filter((e) => e.phone !== "postmaster" && e.phone !== "safraprodconsigbiowa" )
 
                         resultArrayWhitStatusAndPhon.push(t[0]);
 
