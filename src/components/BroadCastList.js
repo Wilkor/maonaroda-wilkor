@@ -77,15 +77,17 @@ guid() {
       let resultItems = data.resource.items;
 
     var result = {
-         "resource":resultItems
-                    .filter((props)=>{ return props["pp"]})
-                     .map((e)=>{ return {"id":e.id, "data": e.metadata["#scheduler.when"].split(" ")[0]}})
-                     .filter((e)=>{ return e.data === month+"/"+dayWeek+"/"+year})
+         "resource":resultItems.map((e)=>{ 
+                       return {
+                       "id":e.to
+                      }
+                    })
+              
                 }
 
 
 
-             if(result.resource.length===0){
+             if(result.resource.length === 0){
 
                  NotificationManager.warning('Não houve resultados para listar!', 'Concluido!');
                  return false
@@ -118,10 +120,12 @@ document.getElementById("modal").click()
                         );
                     const { data } = response
                     console.log(data.resource.items)
-                    let t  = data.resource.items.map((e)=>{
+                    let t  = data.resource.items.map((e)=> {
                       return {
                         "evento":e.event,
-                        "phone":e.id.split("@")[0]}})
+                        "phone":e.id.split("@")[0]
+                         }
+                        })
 
                         resultArrayWhitStatusAndPhon.push(t[0]);
 
