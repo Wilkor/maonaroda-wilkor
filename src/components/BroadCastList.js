@@ -79,10 +79,11 @@ guid() {
     var result = {
          "resource":resultItems.map((e)=>{ 
                        return {
-                       "id":e.to
+                       "id":e.id,
+                       "data": e.metadata["#envelope.storageDate"].split(T)[0]
                       }
                     })
-              
+                     .filter((e)=>{ return e.data === year+"-"+month+"-"+dayWeek})
                 }
 
 
