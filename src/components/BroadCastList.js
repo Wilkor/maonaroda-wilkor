@@ -124,9 +124,10 @@ document.getElementById("modal").click()
                     let t  = data.resource.items.map((e)=> {
                       return {
                         "evento":e.event,
-                        "phone":e.from.split("@")[0]
+                        "phone":e.from.split("@")[0],
+                        "data": buscaSatatus.resource[i].data
                          }
-                        })
+                        }).filter((e) => e.evento !== "postmaster" && e.evento !== "safraprodconsigbiowa" )
 
                         resultArrayWhitStatusAndPhon.push(t[0]);
 
@@ -168,6 +169,7 @@ document.getElementById("modal").click()
 
                 <th scope="col">Telefone</th>
                 <th scope="col">Status</th>
+                <th scope="col">Data</th>
               </tr>
             </thead>
             <tbody>
@@ -180,6 +182,7 @@ document.getElementById("modal").click()
 
                     <td>{elemento.phone}</td>
                     <td>{elemento.evento}</td>
+                    <td>{elemento.data}</td>
 
                     </tr>
                    )
