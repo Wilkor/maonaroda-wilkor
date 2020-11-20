@@ -38,10 +38,9 @@ constructor(props){
               Cadastros
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="/resources">Recuros</Link>
+              <Link className="dropdown-item" to="/resources">Recursos</Link>
               <Link className="dropdown-item" to="/rules">Regras</Link>
                <Link className="dropdown-item" to="/cadastro">Assistentes</Link>
-               <Link className="dropdown-item" to="/contact">Contatos</Link>
               <div className="dropdown-divider"></div>
 
             </div>
